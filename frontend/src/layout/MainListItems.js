@@ -301,15 +301,14 @@ const MainListItems = (props) => {
         primary={i18n.t("mainDrawer.listItems.tickets")}
         icon={<WhatsAppIcon />}
       />
-	  
-	{showKanban && (  
+	
+	{user.super && (
 	  <ListItemLink
         to="/kanban"
         primary={i18n.t("Kanban")}
         icon={<TableChartIcon />}
       />
-	  )}
-
+	)}
 
       <ListItemLink
         to="/quick-messages"
@@ -317,30 +316,37 @@ const MainListItems = (props) => {
         icon={<FlashOnIcon />}
       />
 	  
+	{user.super && (  
 	  <ListItemLink
         to="/todolist"
         primary={i18n.t("Tarefas")}
         icon={<BorderColorIcon />}
       />
-
+	)}
+	
       <ListItemLink
         to="/contacts"
         primary={i18n.t("mainDrawer.listItems.contacts")}
         icon={<ContactPhoneOutlinedIcon />}
       />
-
+	
+	{user.super && ( 
       <ListItemLink
         to="/schedules"
         primary={i18n.t("mainDrawer.listItems.schedules")}
         icon={<EventIcon />}
       />
-
+	)}
+	
+	{user.super && ( 
       <ListItemLink
         to="/tags"
         primary={i18n.t("mainDrawer.listItems.tags")}
         icon={<LocalOfferIcon />}
       />
-
+	)}
+	
+	{user.super && ( 
       <ListItemLink
         to="/chats"
         primary={i18n.t("mainDrawer.listItems.chats")}
@@ -350,6 +356,7 @@ const MainListItems = (props) => {
           </Badge>
         }
       />
+	)}
 
       <ListItemLink
         to="/helps"
@@ -375,9 +382,10 @@ const MainListItems = (props) => {
               color="inherit">
               {i18n.t("mainDrawer.listItems.administration")}
             </ListSubheader>
-			
+		
             {showCampaigns && (
               <>
+			  {user.super && ( 
                 <ListItem
                   button
                   onClick={() => setOpenCampaignSubmenu((prev) => !prev)}
@@ -394,6 +402,8 @@ const MainListItems = (props) => {
                     <ExpandMoreIcon />
                   )}
                 </ListItem>
+			  )}
+			  
                 <Collapse
                   style={{ paddingLeft: 15 }}
                   in={openCampaignSubmenu}
@@ -436,21 +446,27 @@ const MainListItems = (props) => {
                 icon={<AnnouncementIcon />}
               />
             )}
-            {showOpenAi && (
+		
+			{user.super && ( 		
+            //{showOpenAi && ( //Remover comentário caso remove acesso apenas a super
               <ListItemLink
                 to="/prompts"
                 primary={i18n.t("mainDrawer.listItems.prompts")}
                 icon={<AllInclusive />}
               />
-            )}
-
-            {showIntegrations && (
+            //)} //Remover comentário caso remove acesso apenas a super
+			)}
+			
+			{user.super && ( 
+            //{showIntegrations && ( //Remover comentário caso remove acesso apenas a super
               <ListItemLink
                 to="/queue-integration"
                 primary={i18n.t("mainDrawer.listItems.queueIntegration")}
                 icon={<DeviceHubOutlined />}
               />
-            )}
+            //)} //Remover comentário caso remove acesso apenas a super
+			)}
+			
             <ListItemLink
               to="/connections"
               primary={i18n.t("mainDrawer.listItems.connections")}
@@ -475,27 +491,30 @@ const MainListItems = (props) => {
               primary={i18n.t("mainDrawer.listItems.users")}
               icon={<PeopleAltOutlinedIcon />}
             />
-            {showExternalApi && (
-              <>
+			
+			{user.super && ( 
+            //{showExternalApi && ( //Remover comentário caso remove acesso apenas a super
                 <ListItemLink
                   to="/messages-api"
                   primary={i18n.t("mainDrawer.listItems.messagesAPI")}
                   icon={<CodeRoundedIcon />}
                 />
-              </>
-            )}
+            //)} //Remover comentário caso remove acesso apenas a super
+			)}
+			
+			{user.super && ( 
             <ListItemLink
               to="/financeiro"
               primary={i18n.t("mainDrawer.listItems.financeiro")}
               icon={<LocalAtmIcon />}
             />
-
+			)}
+			
             <ListItemLink
               to="/settings"
               primary={i18n.t("mainDrawer.listItems.settings")}
               icon={<SettingsOutlinedIcon />}
-            />
-			
+            />			
 			
             {!collapsed && <React.Fragment>
               <Divider />
