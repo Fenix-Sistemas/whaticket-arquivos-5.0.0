@@ -1174,7 +1174,7 @@ const verifyQueue = async (
       text: formatBody(`\u200e${greetingMessage}\n\n${options}`, contact),
     };
     let lastMsg = map_msg.get(contact.number)
-    let invalidOption = "Opção inválida, por favor, escolha uma opção válida."
+    let invalidOption = ".🚩 *Opção inválida!* Por favor DIGITE APENAS O NÚMERO correspondente a opção desejada:."
     
 
     // console.log('getBodyMessage(msg)', getBodyMessage(msg))
@@ -1555,7 +1555,7 @@ const handleChartbot = async (ticket: Ticket, msg: WAMessage, wbot: Session, don
       });
       buttons.push({
         buttonId: `#`,
-        buttonText: { displayText: "Menu inicial *[ 0 ]* Menu anterior" },
+        buttonText: { displayText: "Menu inicial *[ 0 ]* ior" },
         type: 4
       });
 
