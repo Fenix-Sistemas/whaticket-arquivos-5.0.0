@@ -476,11 +476,15 @@ const MainListItems = (props) => {
                 </Badge>
               }
             />
+            
+            {user.super && ( 
             <ListItemLink
               to="/files"
               primary={i18n.t("mainDrawer.listItems.files")}
               icon={<AttachFile />}
             />
+            )}
+
             <ListItemLink
               to="/queues"
               primary={i18n.t("mainDrawer.listItems.queues")}
